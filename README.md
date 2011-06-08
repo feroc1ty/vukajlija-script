@@ -2,10 +2,10 @@ vukajlija.com userscript za automatsko loadovanje postera
 
 
 
-Upustvo za intaliranje:
+Upustvo za instaliranje:
 =======================
 
-Instalacija za firefox:
+Instalacija za Firefox:
 -----------------------
 
 Potrebano je da se ima instliran  [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
