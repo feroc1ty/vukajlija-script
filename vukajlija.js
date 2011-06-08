@@ -49,14 +49,13 @@ var loader = {
 		},
 		checkTop : function() {
 			var bottom = $(document).height() - $(window).scrollTop();
-			if( bottom < 800) { return true; }
+			if( bottom < 1200) { return true; }
 			return false;
 		},
 		updater : function() {
 			if(loader.loading === false && loader.checkTop()) {
 				loader.loadContent();
 			}
-			//console.log("running");
 		}
 	};
 	
