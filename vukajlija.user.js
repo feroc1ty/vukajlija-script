@@ -16,7 +16,6 @@
     (function(){
             var GM_Head = document.getElementsByTagName('head')[0] || document.documentElement,
                 GM_Script = document.createElement('script');
-			console.log(GM_Head);
             GM_Script.src = 'https://raw.github.com/feroc1ty/Vukajlija-extension/master/vukajlija.js';
             GM_Script.type = 'text/javascript';
             GM_Script.async = true;
