@@ -1,14 +1,3 @@
-// Vukajlija poster loader
-// version 0.1
-// 08.06.2011
-// Copyright (c) 2011, Goran Gajic design4q.com
-// ==UserScript==
-// @name          Vukajlija poster loader
-// @namespace     http://www.design4q.com/vukajlija
-// @description   Automatsko iscitavanje vukajlija postera
-// @include       http://vukajlija.com/zabava/posteri*
-// ==/UserScript==
-
 var loader = {
 		loc : window.location.href,
 		rscript : /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
@@ -19,16 +8,13 @@ var loader = {
 				var index = this.loc.indexOf('strana='),id=1,run=true;
 				// ako nismo na stranici http://vukajlija.com/zabava/posteri
 				if(this.loc.length !== vukajlijaIndex+28) {
-					// ako postoji index
-					console.log("nisu jednake velicine");
-					if(this.index > 0) {
+					if(index > 0) {
 						id = this.loc.substr(index+7,this.loc.length-index+7);
 					} else {
-						console.log(false);
 						run = false;
 					}
 				}
-				if(run) {
+				if(run === true) {
 					this.pageid = parseInt(id,10)+1;
 					this.loading = false;
 					this.$paginations = $(".pagination-container");
@@ -70,7 +56,7 @@ var loader = {
 			if(loader.loading === false && loader.checkTop()) {
 				loader.loadContent();
 			}
-			console.log("running");
+			//console.log("running");
 		}
 	};
 	
