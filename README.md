@@ -1,5 +1,4 @@
 vukajlija.com userscript za automatsko loadovanje postera
----------------------------------------------------------
 
 
 
