@@ -1,45 +1,77 @@
-// TODO:
-//   1. Organize code
-//   2. Fetch page id and put it in `pageid`
-//	 3. Check if we are on right page, and then execute script		
-//	 4. Make and publish extension
-pageid = 2;
-loading = false;
-var rscript = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-$paginations = $(".pagination-container");
-$paginations.filter(":last").before('<div id="loader"></div>');
+// Vukajlija poster loader
+// version 0.1
+// 08.06.2011
+// Copyright (c) 2011, Goran Gajic design4q.com
+// ==UserScript==
+// @name          Vukajlija poster loader
+// @namespace     http://www.design4q.com/vukajlija
+// @description   Automatsko iscitavanje vukajlija postera
+// @include       http://vukajlija.com/zabava/posteri*
+// ==/UserScript==
 
-$loader = $("#loader").css({height: "60px" , 
-			background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
-			marginBottom: "20px", 
-			display: "none" });
-			
-function loadContent(finish) {
-	$loader.fadeIn();
-	loading = true;
-	$.get("http://vukajlija.com/zabava/posteri?strana="+pageid++,function(response) { 
-			var html = "",
-			$res = $("<div>")
-				.append(response.replace(rscript, ""));
-			$res.find(".post-container").each(function() { 
-							html += $("<div>").append(this).html();
-						});
-			$paginations.html($res.find(".pagination-container:first").html());
-		$loader.before(html);
-		loading = false;
-		$loader.fadeOut();
-	});
-}
+var loader = {
+		loc : window.location.href,
+		rscript : /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+		init : function() {
+		// provera da li smo na stranici posteri
+		var vukajlijaIndex = this.loc.indexOf("vukajlija.com/zabava/posteri");
+		if(vukajlijaIndex > 0) {
+				var index = this.loc.indexOf('strana='),id=1,run=true;
+				// ako nismo na stranici http://vukajlija.com/zabava/posteri
+				if(this.loc.length !== vukajlijaIndex+28) {
+					// ako postoji index
+					console.log("nisu jednake velicine");
+					if(this.index > 0) {
+						id = this.loc.substr(index+7,this.loc.length-index+7);
+					} else {
+						console.log(false);
+						run = false;
+					}
+				}
+				if(run) {
+					this.pageid = parseInt(id,10)+1;
+					this.loading = false;
+					this.$paginations = $(".pagination-container");
+					
+					this.$paginations.filter(":last").before('<div id="loader"></div>');
 
-function checkTop() {
-	var bottom = $(document).height() - $(window).scrollTop();
-	if( bottom < 800) return true;
-	return false;
-}
-var updater = function() {
-	if(loading === false && checkTop()) {
-		loadContent();
-	}
-	setTimeout( updater, 500);
-}
-updater();
+					this.$loader = $("#loader").css({height: "60px" , 
+								background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
+								marginBottom: "20px", 
+								display: "none" });
+					setInterval(this.updater,500);
+				}
+			}
+		},
+		loadContent : function(finish) {
+			this.$loader.fadeIn();
+			this.loading = true;
+			var self = this;
+			$.get("http://vukajlija.com/zabava/posteri?strana="+self.pageid++,function(response) { 
+				var html = "", 
+					$res = $("<div>")
+					.append(response.replace(self.rscript, ""));
+				
+				$res.find(".post-container").each(function() { 
+					html += $("<div>").append(this).html();
+				});
+				self.$paginations.html($res.find(".pagination-container:first").html());
+				self.$loader.before(html);
+				self.loading = false;
+				self.$loader.fadeOut();
+			});
+		},
+		checkTop : function() {
+			var bottom = $(document).height() - $(window).scrollTop();
+			if( bottom < 800) { return true; }
+			return false;
+		},
+		updater : function() {
+			if(loader.loading === false && loader.checkTop()) {
+				loader.loadContent();
+			}
+			console.log("running");
+		}
+	};
+	
+	loader.init();
