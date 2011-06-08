@@ -49,7 +49,7 @@ var loader = {
 		},
 		checkTop : function() {
 			var bottom = $(document).height() - $(window).scrollTop();
-			if( bottom < 1200) { return true; }
+			if( bottom < 1440) { return true; }
 			return false;
 		},
 		updater : function() {
