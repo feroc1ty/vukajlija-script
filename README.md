@@ -3,8 +3,6 @@ vukajlija.com userscript za automatsko loadovanje postera
 
 
 
-
-
 Upustvo za intaliranje:
 =======================
 
