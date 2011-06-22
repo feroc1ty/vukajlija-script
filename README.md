@@ -1,4 +1,4 @@
-vukajlija.com ekstenzija za automatsko loadovanje postera
+vukajlija.com ekstenzija za automatsko loadovanje postera kad dodje do kraja stranice
 
 
 
