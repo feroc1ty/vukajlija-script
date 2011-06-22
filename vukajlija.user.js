@@ -7,7 +7,7 @@
 // @namespace     http://www.design4q.com/vukajlija
 // @description   Automatsko iscitavanje vukajlija postera
 // @include       http://vukajlija.com/*
-// @include       http://www.vukajlija.com/
+// @include       http://www.vukajlija.com/*
 // ==/UserScript==
 
 
