@@ -100,7 +100,7 @@ var loader = {
 			console.log($html);
 			$html.imagesLoaded(function() {
 				console.log("appended");
-				self.$container.append( $html ).isotope( 'appended', $html );
+				self.$container.isotope( 'appended', $html );
 				self.$container.isotope( 'reloadItems' );
 			});
 			
