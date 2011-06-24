@@ -128,7 +128,8 @@ var loader = {
 				var $clone = $(this).clone();
 				$display.html($clone).show();
 				if($clone.height() > windowHeight) {
-					$clone.css({height: windowHeight + 'px'});
+					var width = $clone.width() / ($clone.height() / windowHeight);
+					$clone.css({height: windowHeight + 'px', width: width + 'px'});
 				}
 				$this.bind("mousemove" , function(e) {
 					var top = e.pageY,left=e.pageX;
