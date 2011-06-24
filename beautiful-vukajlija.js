@@ -71,7 +71,7 @@ var loader = {
 							background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
 							marginBottom: "20px", 
 							display: "none" });
-				setInterval(this.updater,500);
+				setInterval(this.updater,2000);
 				
 			}
 		}
@@ -110,7 +110,7 @@ var loader = {
 	},
 	checkTop : function() {
 		var bottom = $(document).height() - $(window).scrollTop();
-		if( bottom < 800) { return true; }
+		if( bottom < 1440) { return true; }
 		return false;
 	},
 	updater : function() {
