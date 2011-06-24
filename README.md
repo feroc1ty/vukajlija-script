@@ -1,4 +1,4 @@
-vukajlija.com userscript za automatsko loadovanje postera
+vukajlija.com ekstenzija za automatsko loadovanje postera kad dodje do kraja stranice
 
 
 
@@ -9,7 +9,7 @@ Instalacija za Firefox:
 -----------------------
 
 Potrebano je da se ima instliran  [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
-Pa onda instalirati userskriptu [Vukajlija.user.js](https://github.com/feroc1ty/vukajlija-script/raw/master/vukajlija.user.js)
+Pa onda instalirati [Vukajlija.user.js](https://github.com/feroc1ty/vukajlija-script/raw/master/vukajlija.user.js)
 
 
 Instalacija za Chrome:
