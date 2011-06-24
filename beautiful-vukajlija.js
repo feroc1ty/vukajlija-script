@@ -72,7 +72,7 @@ var loader = {
 							marginBottom: "20px", 
 							display: "none" ,
 							width: '980px'
-							float: 'left' });
+							"float": 'left' });
 				this.loadContent();
 				setInterval(this.updater,300);
 				this.initPictureHover();
