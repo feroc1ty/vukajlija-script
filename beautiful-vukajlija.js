@@ -66,7 +66,7 @@ var loader = {
 				this.$container = $("#left-column");
 				this.loadCss();
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
-
+				this.loadContent();
 				this.$loader = $("#loader").css({height: "60px" , 
 							background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
 							marginBottom: "20px", 
@@ -127,6 +127,7 @@ var loader = {
 
 
 	loader.init();
+	
 	loader.$container.isotope({
 	  itemSelector: '.post-container'
 	});
