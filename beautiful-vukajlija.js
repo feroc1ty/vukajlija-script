@@ -120,19 +120,19 @@ var loader = {
 	initPictureHover: function() {
 		$('body').append('<div id="displayPic" />');
 		var $display = $("#displayPic");
-			windowHeight = $(window).height() - 50;
+			windowHeight = $(window).height() - 100;
 		this.$container.delegate(".copy img", "hover" , function(event) {
-			var $this = $(this),
-				$clone = $(this).clone();
-			$display.html($clone);
-			if($clone.height() > windowHeight) {
-				$clone.css({height: windowHeight + 'px'});
-			}
+			var $this = $(this);
+				
 		    if( event.type === 'mouseenter' ) {
+				var $clone = $(this).clone();
+				$display.html($clone).show();
+				if($clone.height() > windowHeight) {
+					$clone.css({height: windowHeight + 'px'});
+				}
 				$this.bind("mousemove" , function(e) {
 					var top = e.pageY,left=e.pageX;
-					$display.show()
-						.css({top: top + 'px' , left: left + 'px'});	
+					$display.css({top: top + 'px' , left: left + 'px'});	
 				});
 			} else {
 				$display.hide();
