@@ -66,14 +66,6 @@ var loader = {
 				this.$paginations = $(".pagination-container");
 				this.$container = $("#left-column");
 				this.loadCss();
-				$(window).load(function() {
-					loader.$container.isotope({
-					  itemSelector: '.post-container',
-					  masonry : {
-						columnWidth : 210
-					  }
-					});
-				});
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
 
 				this.$loader = $("#loader").css({height: "60px" , 
@@ -104,7 +96,7 @@ var loader = {
 			/*$html.imagesLoaded(function(){
 				self.$container.masonry( 'appended', $html, true ); 
 			});*/
-			
+			self.$container.append( $newItems ).isotope( 'addItems', $html );
 			self.loading = false;
 			self.$loader.fadeOut();
 		});
@@ -126,8 +118,12 @@ var loader = {
 	}
 };
 
-$(function() {
-loader.init();
-});
+
+	$(window).load(function() {
+		loader.init();
+		loader.$container.isotope({
+		  itemSelector: '.post-container',
+		});
+	});
 
 })(jQuery);
