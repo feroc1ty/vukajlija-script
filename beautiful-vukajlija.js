@@ -120,7 +120,7 @@ var loader = {
 		$('body').append('<div id="displayPic" />');
 		var $display = $("#displayPic");
 			
-		this.$container.delegate(".copy img", "hover" , function() {
+		this.$container.delegate(".copy img", "hover" , function(event) {
 			var $this = $(this);
 		    if( event.type === 'mouseenter' ) {
 				$this.bind("mousemove" , function(e) {
