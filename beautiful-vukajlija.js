@@ -121,18 +121,23 @@ var loader = {
 		$('body').append('<div id="displayPic" />');
 		var $display = $("#displayPic");
 			windowHeight = $(window).height() - 100;
+			windowWidth = $(window).width();
 		this.$container.delegate(".copy img", "hover" , function(event) {
-			var $this = $(this);
-				
+			var $this = $(this),
+				width;
 		    if( event.type === 'mouseenter' ) {
 				var $clone = $(this).clone();
+				width = $clone.width();
 				$display.html($clone).show();
 				if($clone.height() > windowHeight) {
-					var width = $clone.width() / ($clone.height() / windowHeight);
+					width = $clone.width() / ($clone.height() / windowHeight);
 					$clone.css({height: windowHeight + 'px', width: width + 'px'});
 				}
 				$this.bind("mousemove" , function(e) {
 					var top = e.pageY,left=e.pageX;
+					if(left > windowWidth / 2) {
+						left - width;
+					}
 					$display.css({top: top + 'px' , left: left + 'px'});	
 				});
 			} else {
