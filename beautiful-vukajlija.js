@@ -112,22 +112,27 @@ var loader = {
 		}
 	},
 	loadCss : function() {
-		var css = "#displayPic{border:3px solid #333;position:absolute;top:0;left:0;overflow:hidden;}#right-column{display:none;}#left-column{width:980px;}.post-container{width:210px;padding:5px;margin:10px;float:left;}.post-container .poster{position:relative;}.post-container .copy img{width:200px;}.post-container .black{display:none;}.post-container .voting{position:absolute;top:100%;left:0;width:61px;height:20px;margin-top:-34px;}.post-container ul.meta{font-size:11px;float:right;width:120px;}.post-container .timeago{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:110px;display:block;}.post-container ul.meta li{display:block;float:none;}.post-container ul.meta li.post-votal-show{display:none;}.post-container h2{overflow:hidden;text-overflow:ellipsis;width:140px;}";
+		var maxHeight = $(window).height() - 50;
+		var css = "#displayPic{border:3px solid #333;position:absolute;top:0;left:0;overflow:hidden;}#displayPic img { max-height: "++" }#right-column{display:none;}#left-column{width:980px;}.post-container{width:210px;padding:5px;margin:10px;float:left;}.post-container .poster{position:relative;}.post-container .copy img{width:200px;}.post-container .black{display:none;}.post-container .voting{position:absolute;top:100%;left:0;width:61px;height:20px;margin-top:-34px;}.post-container ul.meta{font-size:11px;float:right;width:120px;}.post-container .timeago{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:110px;display:block;}.post-container ul.meta li{display:block;float:none;}.post-container ul.meta li.post-votal-show{display:none;}.post-container h2{overflow:hidden;text-overflow:ellipsis;width:140px;}";
 		$("head").append('<style type="text/css" id="beautifulcss" />');
 		$("#beautifulcss").html(css);
 	},
 	initPictureHover: function() {
 		$('body').append('<div id="displayPic" />');
 		var $display = $("#displayPic");
-			
+			windowHeight = $(window).height() - 50;
 		this.$container.delegate(".copy img", "hover" , function(event) {
-			var $this = $(this);
+			var $this = $(this),
+				$clone = $(this).clone();
+			$display.html($clone);
+			if($clone.height() > windowHeight) {
+				$clone.css({height: windowHeight + 'px'});
+			}
 		    if( event.type === 'mouseenter' ) {
 				$this.bind("mousemove" , function(e) {
 					var top = e.pageY,left=e.pageX;
 					$display.show()
-						.css({top: top + 'px' , left: left + 'px'})
-						.html($(this).clone());			
+						.css({top: top + 'px' , left: left + 'px'});	
 				});
 			} else {
 				$display.hide();
