@@ -65,7 +65,7 @@ var loader = {
 				this.$container = $("#left-column");
 				this.loadCss();
 				$(window).load(function() {
-					this.$container.masonry({
+					loader.$container.masonry({
 						itemSelector: '.page-container',
 					});
 				});
