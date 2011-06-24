@@ -100,10 +100,7 @@ var loader = {
 			$html.imagesLoaded(function() {
 				console.log("appended");
 				self.$container.isotope( 'appended', $html);
-				self.$container.isotope( 'destroy' );
-				self.$container.isotope({
-				  itemSelector: '.post-container'
-				});
+				self.$container.isotope('reLayout');
 			});
 			
 			self.loading = false;
