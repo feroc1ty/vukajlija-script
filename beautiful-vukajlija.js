@@ -134,7 +134,7 @@ var loader = {
 			$display.hide();
 			$this.unbind("mousemove");
 		});
-	});
+	}
 };
 
 
