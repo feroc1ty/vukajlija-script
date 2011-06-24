@@ -96,9 +96,11 @@ var loader = {
 				self.$container.masonry( 'appended', $html, true ); 
 			});*/
 			//self.$container.append(html);
+			//console.log(html);
+			console.log($html);
 			$html.imagesLoaded(function() {
 				console.log("appended");
-				self.$container.append(html);
+				self.$container.append( $html ).isotope( 'appended', $html );
 				self.$container.isotope( 'reloadItems' );
 			});
 			
