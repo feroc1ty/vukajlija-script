@@ -136,7 +136,7 @@ var loader = {
 				$this.bind("mousemove" , function(e) {
 					var top = e.pageY,left=e.pageX;
 					if(left > windowWidth / 2) {
-						left - width;
+						left  = left - width;
 					}
 					$display.css({top: top + 'px' , left: left + 'px'});	
 				});
