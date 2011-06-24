@@ -89,7 +89,6 @@ var loader = {
 				html += $("<div>").append(this).html();
 			});
 			//self.$paginations.html($res.find(".pagination-container:first").html());
-			self.$container.append(html);
 			$html = $(html);
 			//console.log($html);
 			/*$html.imagesLoaded(function(){
