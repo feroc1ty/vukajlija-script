@@ -68,8 +68,8 @@ var loader = {
 				this.loadCss();
 				$(window).load(function() {
 					loader.$container.isotope({
+					  itemSelector: '.post-container',
 					  masonry : {
-						itemSelector: '.post-container',
 						columnWidth : 210
 					  }
 					});
