@@ -62,7 +62,7 @@ var loader = {
 				this.pageid = parseInt(id,10)+1;
 				this.loading = false;
 				this.$paginations = $(".pagination-container");
-				
+				this.$container = $("#left-column");
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
 
 				this.$loader = $("#loader").css({height: "60px" , 
@@ -85,8 +85,8 @@ var loader = {
 			$res.find(".post-container").each(function() { 
 				html += $("<div>").append(this).html();
 			});
-			self.$paginations.html($res.find(".pagination-container:first").html());
-			self.$loader.before(html);
+			//self.$paginations.html($res.find(".pagination-container:first").html());
+			self.$container.append(html);
 			self.loading = false;
 			self.$loader.fadeOut();
 			$('#left-column').masonry({
