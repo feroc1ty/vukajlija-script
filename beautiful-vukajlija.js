@@ -98,6 +98,7 @@ var loader = {
 			});*/
 			self.$container.append(html);
 			self.$container.imagesLoaded(function() {
+				console.log("loaded");
 				self.$container.isotope({
 				  itemSelector: '.post-container'
 				});
