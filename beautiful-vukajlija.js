@@ -73,6 +73,7 @@ var loader = {
 							marginBottom: "20px", 
 							display: "none" });
 				setInterval(this.updater,500);
+				this.loadCss();
 			}
 		}
 	},
@@ -106,6 +107,9 @@ var loader = {
 		if(loader.loading === false && loader.checkTop()) {
 			loader.loadContent();
 		}
+	},
+	loadCss : function() {
+		$("head").append('<style type="text/css" id="beautifulcss" />');
 	}
 };
 
