@@ -63,6 +63,9 @@ var loader = {
 				this.loading = false;
 				this.$paginations = $(".pagination-container");
 				this.$container = $("#left-column");
+				this.$container.$container.masonry({
+					itemSelector: '.pagination-container',
+				});
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
 
 				this.$loader = $("#loader").css({height: "60px" , 
@@ -89,9 +92,8 @@ var loader = {
 			self.$container.append(html);
 			self.loading = false;
 			self.$loader.fadeOut();
-			$('#left-column').masonry({
+			self.$container.masonry({
 			  itemSelector: '.pagination-container',
-			  columnWidth: 210
 			});
 		});
 	},
@@ -108,9 +110,6 @@ var loader = {
 };
 
 loader.init();
-$('#left-column').masonry({
-  itemSelector: '.pagination-container',
-  columnWidth: 210
-});
+
 
 })(jQuery);
