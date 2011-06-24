@@ -1,3 +1,12 @@
+/*!
+ *
+ * Vukajlija Poster Loader 0.1
+ * Goran Gajic
+ * http://design4q.com
+ * 
+ */
+	
+
 var loader = {
 		loc : window.location.href,
 		rscript : /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
