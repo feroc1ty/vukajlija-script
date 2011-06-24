@@ -121,7 +121,8 @@ var loader = {
 	}
 };
 
+$(function() {
 loader.init();
-
+});
 
 })(jQuery);
