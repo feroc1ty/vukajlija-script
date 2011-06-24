@@ -97,7 +97,9 @@ var loader = {
 				self.$container.masonry( 'appended', $html, true ); 
 			});*/
 			$html.imagesLoaded(function() {
-				self.$container.isotope( 'insert', $html );
+				self.$container.isotope({
+				  itemSelector: '.post-container'
+				});
 			});
 			self.loading = false;
 			self.$loader.fadeOut();
@@ -123,7 +125,7 @@ var loader = {
 
 	loader.init();
 	loader.$container.isotope({
-	  itemSelector: '.post-container',
+	  itemSelector: '.post-container'
 	});
 
 })(jQuery);
