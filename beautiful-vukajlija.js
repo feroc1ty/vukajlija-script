@@ -63,7 +63,7 @@ var loader = {
 				this.loading = false;
 				this.$paginations = $(".pagination-container");
 				this.$container = $("#left-column");
-				this.$container.$container.masonry({
+				this.$container.masonry({
 					itemSelector: '.pagination-container',
 				});
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
