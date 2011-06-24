@@ -65,14 +65,15 @@ var loader = {
 				this.$paginations = $(".pagination-container");
 				this.$container = $("#left-column");
 				this.loadCss();
-				this.$paginations.filter(":last").before('<div id="loader"></div>');
+				this.$container.after('<div id="loader"></div>');
 				
 				this.$loader = $("#loader").css({height: "60px" , 
 							background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
 							marginBottom: "20px", 
-							display: "none" });
+							display: "none" ,
+							width: '980px'});
 				this.loadContent();
-				setInterval(this.updater,2000);
+				setInterval(this.updater,300);
 			}
 		}
 	},
