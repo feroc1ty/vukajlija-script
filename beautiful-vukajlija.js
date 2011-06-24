@@ -66,7 +66,7 @@ var loader = {
 				this.loadCss();
 				$(window).load(function() {
 					this.$container.masonry({
-						itemSelector: '.pagination-container',
+						itemSelector: '.page-container',
 					});
 				});
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
@@ -93,12 +93,14 @@ var loader = {
 				html += $("<div>").append(this).html();
 			});
 			//self.$paginations.html($res.find(".pagination-container:first").html());
-			self.$container.append(html);
+			//self.$container.append(html);
+			$html = $(html);
+			$html.imagesLoaded(function(){
+				self.$container.masonry( 'appended', $html, true ); 
+			});
+			
 			self.loading = false;
 			self.$loader.fadeOut();
-			self.$container.masonry({
-			  itemSelector: '.pagination-container',
-			});
 		});
 	},
 	checkTop : function() {
