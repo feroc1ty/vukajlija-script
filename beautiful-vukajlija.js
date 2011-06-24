@@ -63,8 +63,11 @@ var loader = {
 				this.loading = false;
 				this.$paginations = $(".pagination-container");
 				this.$container = $("#left-column");
-				this.$container.masonry({
-					itemSelector: '.pagination-container',
+				this.loadCss();
+				$(window).load(function() {
+					this.$container.masonry({
+						itemSelector: '.pagination-container',
+					});
 				});
 				this.$paginations.filter(":last").before('<div id="loader"></div>');
 
@@ -73,7 +76,7 @@ var loader = {
 							marginBottom: "20px", 
 							display: "none" });
 				setInterval(this.updater,500);
-				this.loadCss();
+				
 			}
 		}
 	},
