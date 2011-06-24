@@ -119,11 +119,9 @@ var loader = {
 };
 
 
-	$(window).load(function() {
-		loader.init();
-		loader.$container.isotope({
-		  itemSelector: '.post-container',
-		});
+	loader.init();
+	loader.$container.isotope({
+	  itemSelector: '.post-container',
 	});
 
 })(jQuery);
