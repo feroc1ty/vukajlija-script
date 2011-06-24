@@ -96,7 +96,7 @@ var loader = {
 			/*$html.imagesLoaded(function(){
 				self.$container.masonry( 'appended', $html, true ); 
 			});*/
-			self.$container.append( $newItems ).isotope( 'addItems', $html );
+			self.$container.isotope( 'insert', $html );
 			self.loading = false;
 			self.$loader.fadeOut();
 		});
