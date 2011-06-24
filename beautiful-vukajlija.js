@@ -71,8 +71,8 @@ var loader = {
 							background: "url(http://i.imgur.com/NzNhB.gif) no-repeat 50% 50%", 
 							marginBottom: "20px", 
 							display: "none" ,
-							width: '980px'
-							"float": 'left' });
+							width: '980px',
+							float: 'left' });
 				this.loadContent();
 				setInterval(this.updater,300);
 				this.initPictureHover();
