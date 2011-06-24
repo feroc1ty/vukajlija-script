@@ -96,20 +96,19 @@ var loader = {
 			/*$html.imagesLoaded(function(){
 				self.$container.masonry( 'appended', $html, true ); 
 			});*/
-			self.$container.append(html);
-			self.$container.imagesLoaded(function() {
-				console.log("loaded");
-				self.$container.isotope({
-				  itemSelector: '.post-container'
-				});
+			//self.$container.append(html);
+			$html.imagesLoaded(function() {
+				console.log("appended");
+				self.$container.isotope( 'appended', $html)
 			});
+			
 			self.loading = false;
 			self.$loader.fadeOut();
 		});
 	},
 	checkTop : function() {
 		var bottom = $(document).height() - $(window).scrollTop();
-		if( bottom < 1440) { return true; }
+		if( bottom < 400) { return true; }
 		return false;
 	},
 	updater : function() {
