@@ -99,7 +99,11 @@ var loader = {
 			//self.$container.append(html);
 			$html.imagesLoaded(function() {
 				console.log("appended");
-				self.$container.isotope( 'appended', $html)
+				self.$container.isotope( 'appended', $html);
+				self.$container.isotope( 'destroy' );
+				self.$container.isotope({
+				  itemSelector: '.post-container'
+				});
 			});
 			
 			self.loading = false;
