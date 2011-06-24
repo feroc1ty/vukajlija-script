@@ -20,7 +20,7 @@ $.noConflict();
 
 
 
-jQuery(document).ready(function($) {
+(function($) {
 
 /**
  * jQuery Masonry v2.0.110526
@@ -113,4 +113,4 @@ $('#left-column').masonry({
   columnWidth: 210
 });
 
-});
+})(jQuery);
