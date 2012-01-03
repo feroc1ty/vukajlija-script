@@ -1,3 +1,6 @@
+NIJE TESTIRANO NA NOVOM DIZJANU VUKAJLIJE TAKO DA NE ZNAM DA LI RADI VISE
+============================================================================
+
 vukajlija.com ekstenzija za automatsko loadovanje postera kad dodje do kraja stranice
 
 
